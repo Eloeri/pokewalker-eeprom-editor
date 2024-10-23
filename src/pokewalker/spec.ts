@@ -210,10 +210,10 @@ const special_route = Struct({
     'pokeEvtNum': Int8u,
     'itemEvtNum': Int8u,
     'pokeAnimatedSmallImg': BArray(10, Sprite(32, 24)),
-    'pokeNameImage': Bytes(0x140),
-    'areaSmallImage': Bytes(0xc0),
-    'areaTextNameImg': Bytes(0x140),
-    'itemNameImg': Bytes(0x180),
+    'pokeNameImage': Sprite(80,16),
+    'areaSmallImage': Sprite(32,24),
+    'areaTextNameImg': Sprite(80,16),
+    'itemNameImg': Sprite(96,16),
 })
 
 const random_check_info = Struct({
