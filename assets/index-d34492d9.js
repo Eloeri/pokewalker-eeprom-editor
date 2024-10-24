@@ -1203,6 +1203,33 @@ const Gt = (t, e, n) => {
         }
     };
 
+const abilities = [
+  "NULL", "Stench", "Drizzle", "Speed Boost", "Battle Armor", "Sturdy", "Damp", 
+  "Limber", "Sand Veil", "Static", "Volt Absorb", "Water Absorb", "Oblivious", 
+  "Cloud Nine", "Compound Eyes", "Insomnia", "Color Change", "Immunity", 
+  "Flash Fire", "Shield Dust", "Own Tempo", "Suction Cups", "Intimidate", 
+  "Shadow Tag", "Rough Skin", "Wonder Guard", "Levitate", "Effect Spore", 
+  "Synchronize", "Clear Body", "Natural Cure", "Lightning Rod", "Serene Grace", 
+  "Swift Swim", "Chlorophyll", "Illuminate", "Trace", "Huge Power", "Poison Point", 
+  "Inner Focus", "Magma Armor", "Water Veil", "Magnet Pull", "Soundproof", 
+  "Rain Dish", "Sand Stream", "Pressure", "Thick Fat", "Early Bird", "Flame Body", 
+  "Run Away", "Keen Eye", "Hyper Cutter", "Pickup", "Truant", "Hustle", 
+  "Cute Charm", "Plus", "Minus", "Forecast", "Sticky Hold", "Shed Skin", "Guts", 
+  "Marvel Scale", "Liquid Ooze", "Overgrow", "Blaze", "Torrent", "Swarm", 
+  "Rock Head", "Drought", "Arena Trap", "Vital Spirit", "White Smoke", 
+  "Pure Power", "Shell Armor", "Air Lock", "Tangled Feet", "Motor Drive", 
+  "Rivalry", "Steadfast", "Snow Cloak", "Gluttony", "Anger Point", "Unburden", 
+  "Heatproof", "Simple", "Dry Skin", "Download", "Iron Fist", "Poison Heal", 
+  "Adaptability", "Skill Link", "Hydration", "Solar Power", "Quick Feet", 
+  "Normalize", "Sniper", "Magic Guard", "No Guard", "Stall", "Technician", 
+  "Leaf Guard", "Klutz", "Mold Breaker", "Super Luck", "Aftermath", 
+  "Anticipation", "Forewarn", "Unaware", "Tinted Lens", "Filter", "Slow Start", 
+  "Scrappy", "Storm Drain", "Ice Body", "Solid Rock", "Snow Warning", 
+  "Honey Gather", "Frisk", "Reckless", "Multitype", "Flower Gift", "Bad Dreams"
+];
+
+const abilityMapping = me(I, abilities);
+
 function P(t, e) {
     return {
         read(n, a = 0) {
@@ -1224,6 +1251,7 @@ const g = (t, e) => ({
     q = me(I, Wt),
     We = me(I, xt),
     Q = me(I, Ft),
+	abilityMapping = me(I, abilities); 
     oe = _(40),
     Yt = P({
         unk0: b,
@@ -1298,7 +1326,7 @@ const $t = P({
         otName: D(8),
         encounterType: S,
         ability: S,
-        pokeballType: I,
+        pokeballType: Q,
         unk3: _(10)
     }),
     zt = P({
