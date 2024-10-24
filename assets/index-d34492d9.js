@@ -1706,7 +1706,7 @@ function on(t, e, n) {
     }
     async function c() {
         n(0, a = !1);
-        const s = await fetch("https://github.com/Eloeri/pokewalker-eeprom-editor/raw/refs/heads/gh-pages/eeprom.bin");
+        const s = await fetch("https://raw.githubusercontent.com/Eloeri/pokewalker-eeprom-editor/raw/refs/heads/gh-pages/eeprom.bin");
         r("file", s.arrayBuffer())
     }
     return t.$$set = s => {
