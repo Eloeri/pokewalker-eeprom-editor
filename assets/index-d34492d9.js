@@ -1298,7 +1298,7 @@ const $t = P({
         unk2: I,
         otName: D(8),
         encounterType: S,
-        ability: S,
+        ability: zt,
         pokeballType: I,
         unk3: _(10)
     }),
