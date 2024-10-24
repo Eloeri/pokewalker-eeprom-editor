@@ -1636,7 +1636,7 @@ function Ce(t) {
     let e, n, a, r, o, i, u, c, s, d, f, p, R, h, C;
     return {
         c() {
-            e = T("div"), n = T("div"), a = T("p"), a.textContent = "Drag & drop EEPROM image here", r = B(), o = T("p"), o.textContent = "OR", i = B(), u = T("input"), c = B(), s = T("p"), s.textContent = "OR", d = B(), f = T("button"), f.textContent = "Load Eloeri's EEPROM image from GitHub", p = B(), R = T("p"), R.innerHTML = '<a href="https://github.com/Eloeri/pokewalker-eeprom-editor/blob/main/eeprom.bin">(this one)</a>', L(u, "type", "file"), L(n, "id", "overlay-box"), L(n, "class", "svelte-1lmrwby"), L(e, "id", "overlay"), L(e, "class", "svelte-1lmrwby")
+            e = T("div"), n = T("div"), a = T("p"), a.textContent = "Drag & drop EEPROM image here", r = B(), o = T("p"), o.textContent = "OR", i = B(), u = T("input"), c = B(), s = T("p"), s.textContent = "OR", d = B(), f = T("button"), f.textContent = "Load Eloeri's EEPROM image from GitHub", p = B(), R = T("p"), R.innerHTML = '<a href="https://github.com/mamba2410/reverse-pokewalker/blob/master/dumps/bin/64k-full-rom.bin">(this one)</a>', L(u, "type", "file"), L(n, "id", "overlay-box"), L(n, "class", "svelte-1lmrwby"), L(e, "id", "overlay"), L(e, "class", "svelte-1lmrwby")
         },
         m(le, Ye) {
             A(le, e, Ye), E(e, n), E(n, a), E(n, r), E(n, o), E(n, i), E(n, u), E(n, c), E(n, s), E(n, d), E(n, f), E(n, p), E(n, R), h || (C = [z(u, "change", t[2]), z(f, "click", t[3])], h = !0)
@@ -1707,7 +1707,7 @@ function on(t, e, n) {
     }
     async function c() {
         n(0, a = !1);
-        const s = await fetch("https://raw.githubusercontent.com/Eloeri/pokewalker-eeprom-editor/raw/refs/heads/gh-pages/eeprom.bin");
+        const s = await fetch("https://raw.githubusercontent.com/Eloeri/pokewalker-eeprom-editor/main/eeprom.bin");
         r("file", s.arrayBuffer())
     }
     return t.$$set = s => {
