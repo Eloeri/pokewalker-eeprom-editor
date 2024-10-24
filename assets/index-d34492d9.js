@@ -1397,7 +1397,7 @@ const $t = P({
         pokeEvtNum: S,
         itemEvtNum: S,
         pokeAnimatedSmallImg: l(32, 24),
-        unused: _(1536)
+        unused: _(1536),
         pokeNameImage: l(80,16),
         areaSmallImage: l(32,24),
         areaTextNameImg: l(80,16),
