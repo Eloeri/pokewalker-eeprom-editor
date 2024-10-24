@@ -1228,6 +1228,8 @@ const abilities = [
   "Honey Gather", "Frisk", "Reckless", "Multitype", "Flower Gift", "Bad Dreams"
 ];
 
+const abilityMapping = me(I, abilities);
+
 
 function P(t, e) {
     return {
@@ -1250,7 +1252,7 @@ const g = (t, e) => ({
     q = me(I, Wt),
     We = me(I, xt),
     Q = me(I, Ft),
-	aM = me(I, abilities); 
+	abilityMapping = me(I, abilities); 
     oe = _(40),
     Yt = P({
         unk0: b,
@@ -1324,7 +1326,7 @@ const $t = P({
         unk2: I,
         otName: D(8),
         encounterType: S,
-        ability: aM,
+        ability: abilityMapping,
         pokeballType: Q,
         unk3: _(10)
     }),
