@@ -1142,12 +1142,12 @@ const Gt = (t, e, n) => {
 	α = ["NULL", "Stench", "Drizzle", "Speed Boost", "Battle Armor", "Sturdy", "Damp", "Limber", "Sand Veil", "Static", "Volt Absorb", "Water Absorb", "Oblivious", "Cloud Nine", "Compound Eyes", "Insomnia", "Color Change", "Immunity", "Flash Fire", "Shield Dust", "Own Tempo", "Suction Cups", "Intimidate", "Shadow Tag", "Rough Skin", "Wonder Guard", "Levitate", "Effect Spore", "Synchronize", "Clear Body", "Natural Cure", "Lightning Rod", "Serene Grace", "Swift Swim", "Chlorophyll", "Illuminate", "Trace", "Huge Power", "Poison Point", "Inner Focus", "Magma Armor", "Water Veil", "Magnet Pull", "Soundproof", "Rain Dish", "Sand Stream", "Pressure", "Thick Fat", "Early Bird", "Flame Body", "Run Away", "Keen Eye", "Hyper Cutter", "Pickup", "Truant", "Hustle", "Cute Charm", "Plus", "Minus", "Forecast", "Sticky Hold", "Shed Skin", "Guts", "Marvel Scale", "Liquid Ooze", "Overgrow", "Blaze", "Torrent", "Swarm", "Rock Head", "Drought", "Arena Trap", "Vital Spirit", "White Smoke", "Pure Power", "Shell Armor", "Air Lock", "Tangled Feet", "Motor Drive", "Rivalry", "Steadfast", "Snow Cloak", "Gluttony", "Anger Point", "Unburden", "Heatproof", "Simple", "Dry Skin", "Download", "Iron Fist", "Poison Heal", "Adaptability", "Skill Link", "Hydration", "Solar Power", "Quick Feet", "Normalize", "Sniper", "Magic Guard", "No Guard", "Stall", "Technician", "Leaf Guard", "Klutz", "Mold Breaker", "Super Luck", "Aftermath", "Anticipation", "Forewarn", "Unaware", "Tinted Lens", "Filter", "Slow Start", "Scrappy", "Storm Drain", "Ice Body", "Solid Rock", "Snow Warning", "Honey Gather", "Frisk", "Reckless", "Multitype", "Flower Gift", "Bad Dreams"],
 	γ = {
     read(t, e) {
-        return t.getUint8(e).toString(16).padStart(2, '0') + t.getUint8(e + 1).toString(16).padStart(2, '0') + t.getUint8(e + 2).toString(16).padStart(2, '0') + t.getUint8(e + 3).toString(16).padStart(2, '0');
+        return (t.getUint8(e).toString(16).padStart(2, '0') + t.getUint8(e + 1).toString(16).padStart(2, '0') + t.getUint8(e + 2).toString(16).padStart(2, '0') + t.getUint8(e + 3).toString(16).padStart(2, '0')).toUpperCase();
     },
     length: 4
 	}, δ = {
 		read(t, e) {
-			return t.getUint8(e + 3).toString(16).padStart(2, '0') + t.getUint8(e + 2).toString(16).padStart(2, '0') + t.getUint8(e + 1).toString(16).padStart(2, '0') + t.getUint8(e).toString(16).padStart(2, '0');
+			return (t.getUint8(e + 3).toString(16).padStart(2, '0') + t.getUint8(e + 2).toString(16).padStart(2, '0') + t.getUint8(e + 1).toString(16).padStart(2, '0') + t.getUint8(e).toString(16).padStart(2, '0')).toUpperCase();
 		},
 		length: 4
 	}, S = {
@@ -1660,7 +1660,7 @@ function Ce(t) {
     let e, n, a, r, o, i, u, c, s, d, f, p, R, h, C;
     return {
         c() {
-            e = T("div"), n = T("div"), a = T("p"), a.textContent = "Drag & drop EEPROM image here", r = B(), o = T("p"), o.textContent = "OR", i = B(), u = T("input"), c = B(), s = T("p"), s.textContent = "OR", d = B(), f = T("button"), f.textContent = "v2, Load Eloeri's EEPROM image from GitHub", p = B(), R = T("p"), R.innerHTML = '<a href="https://github.com/mamba2410/reverse-pokewalker/blob/master/dumps/bin/64k-full-rom.bin">(this one)</a>', L(u, "type", "file"), L(n, "id", "overlay-box"), L(n, "class", "svelte-1lmrwby"), L(e, "id", "overlay"), L(e, "class", "svelte-1lmrwby")
+            e = T("div"), n = T("div"), a = T("p"), a.textContent = "Drag & drop EEPROM image here", r = B(), o = T("p"), o.textContent = "OR", i = B(), u = T("input"), c = B(), s = T("p"), s.textContent = "OR", d = B(), f = T("button"), f.textContent = "v3, Load Eloeri's EEPROM image from GitHub", p = B(), R = T("p"), R.innerHTML = '<a href="https://github.com/mamba2410/reverse-pokewalker/blob/master/dumps/bin/64k-full-rom.bin">(this one)</a>', L(u, "type", "file"), L(n, "id", "overlay-box"), L(n, "class", "svelte-1lmrwby"), L(e, "id", "overlay"), L(e, "class", "svelte-1lmrwby")
         },
         m(le, Ye) {
             A(le, e, Ye), E(e, n), E(n, a), E(n, r), E(n, o), E(n, i), E(n, u), E(n, c), E(n, s), E(n, d), E(n, f), E(n, p), E(n, R), h || (C = [z(u, "change", t[2]), z(f, "click", t[3])], h = !0)
