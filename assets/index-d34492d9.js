@@ -1153,10 +1153,10 @@ const Gt = (t, e, n) => {
 	}, δ = {
 		read(t, e) {
 			return [
-				t.getUint8(e + 3)
+				t.getUint8(e + 3),
 				t.getUint8(e + 2),
 				t.getUint8(e + 1),
-				t.getUint8(e),
+				t.getUint8(e)
 			];
 		},
 		length: 4
