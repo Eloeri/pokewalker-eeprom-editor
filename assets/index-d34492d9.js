@@ -1659,12 +1659,12 @@ const Pe = P({
         giftedItems: g(10, Pe),
         stepsHistory: g(7, b),
         eventLog: g(24, Xt),
-        padd: _(52),
+        padding1: _(52),
         peer: se,
         metPeers: g(8, se),
-        unused6: _(318),
-        itemAtEnd: g(8, l(96, 16)),
-		endpad: _(66)
+        padding2: _(318),
+        itemsAtEnd: g(8, l(96, 16)),
+		endpadding: _(66)
     }),
     en = async t => {
         await vt();
