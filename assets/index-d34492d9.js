@@ -1288,6 +1288,18 @@ P({
     lcdCmds: Ke,
     magix: _(8)
 });
+const ABC = P({
+    curStepCount: V,
+    curWatts: I,
+    pad1: _(2),
+    unk0: V,
+    unk2: I,
+    species: q,
+    pokeNickName: D(11),
+    trainerName: D(8),
+    pokeGenderForm: S,
+    pokeIsSpecial: S
+});
 const $t = P({
         lifetimeTotalSteps: b,
         todaySteps: b,
@@ -1358,6 +1370,23 @@ const $t = P({
         currRouteName: D(16),
         unknown: _(24),
 		
+    }),
+	se2 = P({
+        unk0: _(8),
+        uniq: oe,
+        tid: I,
+        sid: I,
+        unk1: _(4),
+        name: D(8),
+        unk2: g(3, P({
+            flags: V,
+            val: I,
+            always_ffff: _(2)
+        })),
+        pokes: g(6, zt),
+        unknownZero1: _(114),
+        unknownData: _(2),
+        		
     }),
 	
 	ε = P({
@@ -1619,56 +1648,113 @@ const Pe = P({
         good_job_txt: l(96, 16),
         switch_txt: l(80, 16)
     }),
-    Qt = P({
-        nintendo: Kt(8),
-        unk1: _(8),
-        unk2: _(98),
-        numResets: S,
-        "???": _(13),
-        important1: Be,
-        important2: Be,
-        sprites: Jt,
-        "???2": _(64),
-        randomCheck: _(592),
-        routeInfo: qt,
-        areaSprite: l(32, 24),
-        areaNameSprite: l(80, 16),
-        walkPokeAnimatedSpritesSmall: g(2, l(32, 24)),
-        walkPokeAnimatedSpriteLarge: g(2, l(64, 48)),
-        walkPokeNameSprite: l(80, 16),
-        routePokeSprites: g(3, g(2, l(32, 24))),
-        joinPokeAnimatedSprite: g(2, l(64, 48)),
-        routePokeNameSprites: g(3, l(80, 16)),
-        itemNameSprites: g(10, l(96, 16)),
-        "???3": _(66),
-        receivedSet: _(1),
-        unused3: _(3),
-        specialMap: _(576),
-        EventPokeRecievedOrCaught: ε,
-		EventItemRecievedOrDowsed: ζ,
-        unused5: _(56),
-        specialRoute: jt,
-        unused4: _(68),
-        team: se,
-        unused: _(8),
-        giveStarf: S,
-        unused2: S,
-        wattsForRemote: N,
-        caughtPokes: g(3, ne),
-        dowsedItems: g(3, Pe),
-        giftedItems: g(10, Pe),
-        stepsHistory: g(7, b),
-        eventLog: g(23, Xt),
-        BigImage: l(64, 48),//_(768),
-        metPeers: g(8, se),
-        padding2: _(378),
-        itemsAtEnd: g(8, l(96, 16)),//_(3072),
-		endpadding: _(66)
+    Peer = P({
+        "Nintendo Header": Kt(8),
+        "Unknown 1": _(8),
+        "Unknown 2": _(98),
+        "Number of Resets": S,
+        "Unknown 3": _(13),
+        "Important, Copy 1": Be,
+        "Important, Copy 2": Be,
+        "Sprites": Jt,
+        "Unknown 4": _(64),
+        "Random Check": _(592),
+        "Route Info": qt,
+        "Area Sprite": l(32, 24),
+        "Area Name": l(80, 16),
+        "Battle Sprites of Walking Pokemon": g(2, l(32, 24)),
+        "Homescreen Sprites of Walking Pokemon": g(2, l(64, 48)),
+        "Name of Walking Pokemon": l(80, 16),
+        "Sprites of Pokemon Found on Route": g(3, g(2, l(32, 24))),
+        "Sprite of Pokemon That Can Join Walk": g(2, l(64, 48)),
+        "List of Names of Pokemon on Route": g(3, l(80, 16)),
+        "List of Names of Items on Route": g(10, l(96, 16)),
+        "Unknown 5": _(66),
+        "Bitfield of Things Recieved": _(1),
+        "Unused 1": _(3),
+        "Special Map": _(576),
+        "Event Poke Recieved Or Caught": ε,
+		"Event Item Recieved Or Dowsed": ζ,
+        "Unused 2": _(56),
+        "Special Route": jt,
+        "Unused 3": _(68),
+        "Team Data": se,
+        "Unused 4": _(8),
+        "Given Starf Berry": S,
+        "Unused 5": S,
+        "Watts For Remote": N,
+        "Pokemon Caught": g(3, ne),
+        "Items Dowsed": g(3, Pe),
+        "Items Gifted": g(10, Pe),//CEC8
+        "7 Day Step History": g(7, b),//CEF0
+		"Event Log": g(24, Xt),//CF0C
+		"Padding 1": _(52),
+		"Current Peer Met": se2,//DC00
+		"List of Peers Met": g(10, se2),//DE24
+		"Padding 2": _(116),//F38C
+		"Small Image of Peer Pokemon": g(2, l(32, 24)),//_(384),//F400
+		"Name of Peer Pokemon": l(80, 16),//F580
+		"Peer Play Data": ABC,//F6C0
+		"Padding 3": _(326),//F6F8
+		"Extraneous Items At End of Eeprom": g(5, l(96, 16)),//F83E
+		"End Padding": _(66)//FFBE
+
+		
+    }),
+	NPeer = P({
+        "Nintendo Header": Kt(8),
+        "Unknown 1": _(8),
+        "Unknown 2": _(98),
+        "Number of Resets": S,
+        "Unknown 3": _(13),
+        "Important, Copy 1": Be,
+        "Important, Copy 2": Be,
+        "Sprites": Jt,
+        "Unknown 4": _(64),
+        "Random Check": _(592),
+        "Route Info": qt,
+        "Area Sprite": l(32, 24),
+        "Area Name": l(80, 16),
+        "Battle Sprites of Walking Pokemon": g(2, l(32, 24)),
+        "Homescreen Sprites of Walking Pokemon": g(2, l(64, 48)),
+        "Name of Walking Pokemon": l(80, 16),
+        "Sprites of Pokemon Found on Route": g(3, g(2, l(32, 24))),
+        "Sprite of Pokemon That Can Join Walk": g(2, l(64, 48)),
+        "List of Names of Pokemon on Route": g(3, l(80, 16)),
+        "List of Names of Items on Route": g(10, l(96, 16)),
+        "Unknown 5": _(66),
+        "Bitfield of Things Recieved": _(1),
+        "Unused 1": _(3),
+        "Special Map": _(576),
+        "Event Poke Recieved Or Caught": ε,
+		"Event Item Recieved Or Dowsed": ζ,
+        "Unused 2": _(56),
+        "Special Route": jt,
+        "Unused 3": _(68),
+        "Team Data": se,
+        "Unused 4": _(8),
+        "Given Starf Berry": S,
+        "Unused 5": S,
+        "Watts For Remote": N,
+        "Pokemon Caught": g(3, ne),
+        "Items Dowsed": g(3, Pe),
+        "Items Gifted": g(10, Pe),//CEC8
+        "7 Day Step History": g(7, b),//CEF0
+        "Event Log": g(23, Xt),//CF0C
+		"Large Image of Pokemon": l(64, 48),//DB44	
+		"Padding 1": _(60),//DE44
+		"Peers Met": g(10, se2),//DE80
+        "Padding 2": _(342),//F280
+        "Extraneous Items At End of Eeprom": g(7, l(96, 16)),//F3BE
+		"End Padding": _(600)//FFBE
+		
+
+		
     }),
     en = async t => {
         await vt();
         const e = new DataView(t);
-        return Qt.read(e, 0)
+        return NPeer.read(e, 0)
     };
 
 function Ce(t) {
